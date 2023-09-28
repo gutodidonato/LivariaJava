@@ -1,0 +1,19 @@
+-- Tabela autores
+CREATE TABLE autores (
+    id number GENERATED always as identity,
+    nome varchar(200),
+    lingua varchar(200),
+    PRIMARY KEY (id)
+);
+
+-- Tabela livros com chave estrangeira para autores
+CREATE TABLE livros (
+    id number GENERATED always as identity,
+    serie varchar(200),
+    titulo varchar(200),
+    capitulos integer, 
+    valor number(6,2),
+    autor_id number,
+    FOREIGN KEY (autor_id) REFERENCES autores(id),
+    PRIMARY KEY (id)
+);
